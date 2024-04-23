@@ -71,7 +71,7 @@ public class FsmClass<TFsm_Type>
 #if UNITY_EDITOR
 		if (true == m_fsmGameStateList.ContainsKey(_state.getStateType))
 		{
-			//Debug.LogError("FsmClass::AddFsm()[ exist id : " + _state.getStateType);
+			Debug.LogError("FsmClass::AddFsm()[ exist id : " + _state.getStateType);
 			return;
 		}
 #endif
@@ -83,7 +83,7 @@ public class FsmClass<TFsm_Type>
 #if UNITY_EDITOR
 		if (false == m_fsmGameStateList.ContainsKey(_state))
 		{
-			//Debug.LogError("FsmClass::SetState()[ con't find id : " + _state);
+			Debug.LogError("FsmClass::SetState()[ con't find id : " + _state);
 			return;
 		}
 #endif

@@ -9,7 +9,13 @@ public class FsmPlayerMove : FsmState<FSM_PLAYER_STATE>
     bool isGrounded;
     public FsmPlayerMove() : base(FSM_PLAYER_STATE.MOVE)
     {
-        if(PlayerManager.instance != null)
+        
+    }
+
+
+    public override void Enter()
+    {
+        if (playerSetting == null)
         {
             playerSetting = PlayerManager.instance.m_GetPlayerSetting;
         }
@@ -17,16 +23,11 @@ public class FsmPlayerMove : FsmState<FSM_PLAYER_STATE>
         {
             Debug.LogError("Can't Find \"Player Singleton Instance\" Object Please Get Instance");
         }
-    }
-
-
-    public override void Enter()
-    {
-
         base.Enter();
     }
     public override void Loop()
     {
+
         isGrounded = Physics.CheckSphere(
             playerSetting.groundCheck.position, playerSetting.groundDistance, playerSetting.groundMask
             );

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,7 +32,7 @@ public class PlayerManager : MonoBehaviour
 }
 
 
-[SerializeField]
+[Serializable]
 public class PlayerControllSetting
 {
     public CharacterController controller;

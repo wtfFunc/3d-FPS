@@ -14,12 +14,13 @@ public class PlayerCtrl : MonoBehaviour
 
 
     [SerializeField]
-    public FSM_UI_STATE curState;
+    public FSM_PLAYER_STATE curState;
 
     private void Awake()
     {
-        
-        m_logic.SetState(FSM_PLAYER_STATE.IDLE);
+        Init();
+        m_logic.SetState(FSM_PLAYER_STATE.MOVE);
+
     }
 
     private void Update()
@@ -41,16 +42,12 @@ public class PlayerCtrl : MonoBehaviour
         m_logic.SetState(state);
     }
 
-    public class PlayerStat
-    {
-        public float Speed = 1f;
-        public int Hp = 100;
-        public int Sp = 0;
-    }
+    
 
 
     private void Init()
     {
+        m_playerStat = new PlayerStat();
         m_playerStat.Hp = playerData.Hp;
         m_playerStat.Sp = playerData.Sp;
         m_playerStat.Speed = playerData.Speed;
@@ -58,4 +55,11 @@ public class PlayerCtrl : MonoBehaviour
 
         SetLogic();
     }
+}
+
+public class PlayerStat
+{
+    public float Speed = 1f;
+    public int Hp = 100;
+    public int Sp = 0;
 }

@@ -33801,6 +33801,8 @@ GameObject:
   - component: {fileID: 1656206104}
   - component: {fileID: 1656206107}
   - component: {fileID: 1656206109}
+  - component: {fileID: 1656206110}
+  - component: {fileID: 1656206111}
   m_Layer: 0
   m_Name: FirstPersonPlayer
   m_TagString: Untagged
@@ -33815,7 +33817,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656206103}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ab0fc542e6aa6e48bf61987d199042b, type: 3}
   m_Name: 
@@ -34012,6 +34014,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b3d149154e23543992bf2ff78e15ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1656206110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656206103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e786b8ea7b677d74d8072a8962b18ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerStat: {fileID: 11400000, guid: 19c5b0a833bf83d4b9285a00ff435149, type: 2}
+  m_GetPlayerSetting:
+    controller: {fileID: 1656206105}
+    speed: 8
+    gravity: -9.81
+    jumpHeight: 3
+    groundCheck: {fileID: 332806202}
+    groundDistance: 0.4
+    groundMask:
+      serializedVersion: 2
+      m_Bits: 0
+    velocity: {x: 0, y: 0, z: 0}
+    footStepSound: {fileID: 8300000, guid: 263f8aaa01d5d0041b082b7b69d9ca02, type: 3}
+    footStepDelay: 0.35
+    nextFootstep: 0
+--- !u!114 &1656206111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656206103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dffe775737a24b409f50f3b58729b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 19c5b0a833bf83d4b9285a00ff435149, type: 2}
+  curState: 2
 --- !u!4 &1657226097 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5725000371507048362, guid: b2452a5c2cd649a4db9eebcd16f7b155, type: 3}
