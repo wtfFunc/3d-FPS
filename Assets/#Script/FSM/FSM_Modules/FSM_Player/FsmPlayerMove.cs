@@ -21,7 +21,7 @@ public class FsmPlayerMove : FsmState<FSM_PLAYER_STATE>
         }
         else
         {
-            Debug.LogError("Can't Find \"Player Singleton Instance\" Object Please Get Instance");
+            Debug.LogError("Can't Find \"Player Singleton Instance\" Please Get Instance");
         }
         base.Enter();
     }
@@ -39,6 +39,21 @@ public class FsmPlayerMove : FsmState<FSM_PLAYER_STATE>
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        if (z >= 0.01f)
+        {
+            PlayerManager.instance.player.m_PlayerAnimator.SetFloat("Vertical", 0.4f);
+        }
+        else if(z <= -0.01f)
+        {
+            PlayerManager.instance.player.m_PlayerAnimator.SetFloat("Vertical", -0.4f);
+        }
+        else
+        {
+            PlayerManager.instance.player.m_PlayerAnimator.SetFloat("Vertical", 0f);
+        }
+        PlayerManager.instance.player.m_PlayerAnimator.SetFloat("Horizontal", x);
+        //PlayerManager.instance.player.m_PlayerAnimator.SetFloat("y",z);
 
         Vector3 motion = playerSetting.controller.gameObject.transform.right * x + playerSetting.controller.gameObject.transform.forward * z;
         playerSetting.controller.Move(motion * playerSetting.speed * Time.deltaTime);

@@ -12,6 +12,7 @@ public class PlayerCtrl : MonoBehaviour
     public PlayerObjectData playerData;
     private PlayerStat m_playerStat { get; set; }
 
+    public Animator m_PlayerAnimator;
 
     [SerializeField]
     public FSM_PLAYER_STATE curState;

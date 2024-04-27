@@ -11,6 +11,8 @@ public class PlayerManager : MonoBehaviour
 
     public PlayerControllSetting m_GetPlayerSetting;
 
+
+    public PlayerCtrl player;
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,6 +23,7 @@ public class PlayerManager : MonoBehaviour
         else
         {
             Destroy(this.gameObject);
+
         }
     }
 
