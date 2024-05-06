@@ -10,7 +10,7 @@ public class GunScriptable : ScriptableObject
 
     public float damage;
     public float fireRate;
-    public float speed;
+    public float ammoSpeed;
 
     public int maxAmmo;
     

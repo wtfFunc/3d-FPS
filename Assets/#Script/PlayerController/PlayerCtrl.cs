@@ -17,6 +17,9 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]
     public FSM_PLAYER_STATE curState;
 
+    
+
+
     private void Awake()
     {
         Init();
@@ -64,3 +67,4 @@ public class PlayerStat
     public int Hp = 100;
     public int Sp = 0;
 }
+

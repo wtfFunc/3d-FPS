@@ -27,6 +27,14 @@ public enum FSM_GAME_STATE
 	SELEC_REWARD
 }
 
+public enum PLAYER_EQUIP
+{
+	RIFLE,
+	HANDGUN,
+	GRENADE,
+	HAND,
+}
+
 
 [System.Serializable]
 public abstract class FsmState<TFsm_Type>

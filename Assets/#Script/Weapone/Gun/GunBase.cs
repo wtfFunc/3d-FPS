@@ -4,7 +4,13 @@ using UnityEngine;
 
 public abstract class GunBase : MonoBehaviour
 {
-    
+    public GunScriptable gunData;
+
+
+    [Header("Resource")]
+    public AudioSource fireSound;
+    public AudioSource reLoadingSound;
+
 
     public abstract void Equip();
 
@@ -12,4 +18,11 @@ public abstract class GunBase : MonoBehaviour
 
     public abstract void Drop();
 
+}
+
+public enum RIFLE_TYPE
+{
+    AR,
+    SR,
+    DMR
 }

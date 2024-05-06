@@ -18,6 +18,7 @@ public abstract class Scope : WeaponComponent
         base.Init();
         _ComponentAction = ScopeAction;
         _DisuseAction = UnScopeAction;
+        _EquipAction = Equip;
     }
 
     public override void Equip()
