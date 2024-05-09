@@ -27,7 +27,7 @@ public enum FSM_GAME_STATE
 	SELEC_REWARD
 }
 
-public enum PLAYER_EQUIP
+public enum FSM_PLAYER_EQUIP
 {
 	RIFLE,
 	HANDGUN,

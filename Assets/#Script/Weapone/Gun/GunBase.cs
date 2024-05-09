@@ -7,10 +7,15 @@ public abstract class GunBase : MonoBehaviour
     public GunScriptable gunData;
 
 
+
+
     [Header("Resource")]
     public AudioSource fireSound;
     public AudioSource reLoadingSound;
 
+
+    [Header("PartsObject")]
+    public Transform camPos;
 
     public abstract void Equip();
 

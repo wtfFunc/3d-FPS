@@ -29,7 +29,6 @@ public abstract class Scope : WeaponComponent
     public override void Use()
     {
         base.Use();
-        
     }
 
     public override void disuse()

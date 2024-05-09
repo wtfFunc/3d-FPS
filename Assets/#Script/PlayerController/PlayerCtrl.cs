@@ -6,7 +6,14 @@ using UnityEngine;
 public class PlayerCtrl : MonoBehaviour
 {
     [ReadOnly]
-    public FsmClass<FSM_PLAYER_STATE> m_logic = new FsmClass<FSM_PLAYER_STATE>();
+    public FsmClass<FSM_PLAYER_STATE> m_state = new FsmClass<FSM_PLAYER_STATE>();
+
+
+    [ReadOnly]
+    public FsmClass<FSM_PLAYER_EQUIP> m_equip = new FsmClass<FSM_PLAYER_EQUIP>();
+
+
+
 
 
     public PlayerObjectData playerData;
@@ -23,27 +30,34 @@ public class PlayerCtrl : MonoBehaviour
     private void Awake()
     {
         Init();
-        m_logic.SetState(FSM_PLAYER_STATE.MOVE);
+        m_state.SetState(FSM_PLAYER_STATE.MOVE);
+
+
+        m_equip.SetState(FSM_PLAYER_EQUIP.RIFLE);
 
     }
 
     private void Update()
     {
-        m_logic.Update();
+        m_state.Update();
+
+        m_equip.Update();
     }
 
     private void SetLogic()
     {
-        m_logic.AddFsm(new FsmPlayerDie());
-        m_logic.AddFsm(new FsmPlayerIdle());
-        m_logic.AddFsm(new FsmPlayerMove());
-        m_logic.AddFsm(new FsmPlayerRevive());
+        m_state.AddFsm(new FsmPlayerDie());
+        m_state.AddFsm(new FsmPlayerIdle());
+        m_state.AddFsm(new FsmPlayerMove());
+        m_state.AddFsm(new FsmPlayerRevive());
+
+        m_equip.AddFsm(new FsmEquipRifle());
 
     }
 
     public void SetState(FSM_PLAYER_STATE state)
     {
-        m_logic.SetState(state);
+        m_state.SetState(state);
     }
 
     
