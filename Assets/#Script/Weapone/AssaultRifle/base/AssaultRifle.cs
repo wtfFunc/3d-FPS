@@ -30,15 +30,17 @@ public class AssaultRifle : GunBase
 
     }
 
+    public override void Fire()
+    {
+
+    }
+
     public override void Drop()
     {
 
     }
 
-    public override void Fire()
-    {
-
-    }
+    
 
 
     private void SetRifle(GunScriptable data)
