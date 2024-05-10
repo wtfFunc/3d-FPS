@@ -14,7 +14,7 @@ public class SniperRifle : GunBase
         throw new System.NotImplementedException();
     }
 
-    public override void Use()
+    public override void Fire()
     {
         throw new System.NotImplementedException();
     }

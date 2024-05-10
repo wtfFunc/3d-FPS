@@ -35,7 +35,7 @@ public class AssaultRifle : GunBase
 
     }
 
-    public override void Use()
+    public override void Fire()
     {
 
     }
