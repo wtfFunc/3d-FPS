@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Scope : WeaponComponent
+public class Scope : WeaponComponent, IComponent
 {
     public Camera scopeCam;
 
     public float time;
+
+
+    public Scope(E_WeaponComponent e_WeaponComponent)
+    {
+        componentType = e_WeaponComponent;
+    }
+
 
     private void Awake()
     {
@@ -15,10 +22,12 @@ public abstract class Scope : WeaponComponent
 
     public override void Init()
     {
+        _useAction      = Use;
+        _disuseAction   = Dispose;
+        _equipAction    = Equip;
+
+
         base.Init();
-        _ComponentAction = ScopeAction;
-        _DisuseAction = UnScopeAction;
-        _EquipAction = Equip;
     }
 
     public override void Equip()
@@ -28,29 +37,18 @@ public abstract class Scope : WeaponComponent
 
     public override void Use()
     {
-        base.Use();
-    }
-
-    public override void disuse()
-    {
-        base.disuse();
-
-    }
-
-
-    private void ScopeAction()
-    {
         Camera.main.enabled = false;
         scopeCam.enabled = true;
 
         scopeCam.fieldOfView = time;
+        base.Use();
     }
 
-    private void UnScopeAction()
+    public override void Dispose()
     {
         Camera.main.enabled = true;
         scopeCam.enabled = false;
 
-        // scopeCam.fieldOfView = 1f;
+        base.Dispose();
     }
 }

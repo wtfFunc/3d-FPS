@@ -32,7 +32,7 @@ public class AssaultRifle : GunBase
 
     public override void Fire()
     {
-
+        // 사격 호출매서드
     }
 
     public override void Drop()

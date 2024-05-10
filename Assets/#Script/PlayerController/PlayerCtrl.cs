@@ -24,6 +24,8 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField]
     public FSM_PLAYER_STATE curState;
 
+    public GunBase equipWeapone;
+    
     
 
 
@@ -34,6 +36,7 @@ public class PlayerCtrl : MonoBehaviour
 
 
         m_equip.SetState(FSM_PLAYER_EQUIP.RIFLE);
+
 
     }
 
@@ -46,18 +49,30 @@ public class PlayerCtrl : MonoBehaviour
 
     private void SetLogic()
     {
+        // 상태 FSM 추가
         m_state.AddFsm(new FsmPlayerDie());
         m_state.AddFsm(new FsmPlayerIdle());
         m_state.AddFsm(new FsmPlayerMove());
         m_state.AddFsm(new FsmPlayerRevive());
 
+        // 장착 Fsm 추가 
         m_equip.AddFsm(new FsmEquipRifle());
-
+        
     }
 
     public void SetState(FSM_PLAYER_STATE state)
     {
         m_state.SetState(state);
+    }
+
+    // Gunbase 검사
+    public GunBase CheckToEquip()
+    {
+        if(equipWeapone != null)
+        {
+            return equipWeapone;
+        }
+        return null;
     }
 
     
