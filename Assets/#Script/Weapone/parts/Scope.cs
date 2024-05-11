@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Scope : WeaponComponent, IComponent
+public class Scope : WeaponComponent
 {
     public Camera scopeCam;
 
     public float time;
 
+    
 
-    public Scope(E_WeaponComponent e_WeaponComponent)
+    public Scope(E_PartsType e_WeaponComponent)
     {
         componentType = e_WeaponComponent;
     }

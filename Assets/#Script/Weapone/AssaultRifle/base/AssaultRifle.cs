@@ -8,13 +8,15 @@ public class AssaultRifle : GunBase
 
 
     [HideInInspector]
-    public float m_Damage;
+    public float m_Damage; // 대미지
     [HideInInspector]
-    public float m_FireRate;
+    public float m_FireRate; // 연사속도
     [HideInInspector]
-    public float m_Speed;
+    public float m_Speed; // 탄속
     [HideInInspector]
-    public int m_MaxAmmo;
+    public float m_Weight; // 탄낙
+    [HideInInspector]
+    public int m_MaxAmmo; 
 
     public Transform m_sightObject;
 
@@ -23,6 +25,8 @@ public class AssaultRifle : GunBase
     private void Awake()
     {
         SetRifle(gunData);
+        lineRenderer = GetComponent<LineRenderer>();
+        DrawCurve();
     }
 
     public override void Equip()
@@ -30,12 +34,12 @@ public class AssaultRifle : GunBase
 
     }
 
-    public override void Fire()
+    public override void Use()
     {
         // 사격 호출매서드
     }
 
-    public override void Drop()
+    public override void Dispose()
     {
 
     }

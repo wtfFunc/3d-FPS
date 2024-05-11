@@ -18,7 +18,9 @@ public class Composite : IComponent
         {
             if(item.GetType() == component.GetType())
             {
-                // 
+                // 같은종류의 컴포지트를 발견시 교체하지않음
+                Debug.Log("이미 같은 컴포지트를 가지고있습니다. 임포트 되지않습니다.");
+                return;
             }
         }
         children.Add(component);
@@ -38,9 +40,11 @@ public class Composite : IComponent
         {
             child.Display(depth + 2);
         }
+
+        // 전체 컴포지트 실행 매서드
     }
 
-    E_WeaponComponent IComponent.GetType()
+    E_PartsType IComponent.GetType()
     {
         throw new System.NotImplementedException();
     }
@@ -66,7 +70,7 @@ public class RifleParts : IComponent
 
     }
 
-    E_WeaponComponent IComponent.GetType()
+    E_PartsType IComponent.GetType()
     {
         throw new System.NotImplementedException();
     }

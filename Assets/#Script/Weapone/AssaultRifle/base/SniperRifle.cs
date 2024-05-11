@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SniperRifle : GunBase
 {
-    public override void Drop()
+    public override void Dispose()
     {
         throw new System.NotImplementedException();
     }
@@ -14,7 +14,7 @@ public class SniperRifle : GunBase
         throw new System.NotImplementedException();
     }
 
-    public override void Fire()
+    public override void Use()
     {
         throw new System.NotImplementedException();
     }
